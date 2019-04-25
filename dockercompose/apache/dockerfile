@@ -1,0 +1,17 @@
+# My Base Image. 
+FROM ckshetty/apache-server3:v3
+
+# Owner
+MAINTAINER Chetan Shetty <rite2chetan@yahoo.in>
+
+# Update the APT Repo. 
+RUN apt-get update
+
+# Install Apache Packages  
+RUN apt-get install apache2 -y 
+
+# Install Apache Packages  
+COPY chetan.html /var/www/html/index.html
+
+# Bring the Apache Up
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND" ]

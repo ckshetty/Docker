@@ -1,0 +1,16 @@
+node {
+    
+stage('git checkout') {
+git 'https://github.com/amitvashist7/jenkins-adv-acc-3.git'
+}
+stage('Maven steps') {
+def project_path = 'jenkins2-course-spring-boot/spring-boot-samples/spring-boot-sample-atmosphere/'
+dir(project_path) {
+sh label: '', script: 'mvn clean'
+sh label: '', script: 'mvn package'
+}
+}
+stage('Archive') {
+archive 'jenkins2-course-spring-boot/spring-boot-samples/spring-boot-sample-atmosphere/target/*.jar'
+}
+}
