@@ -1,0 +1,6 @@
+node {
+git 'https://github.com/amitvashist7/jenkins-adv-acc-3.git'
+sh label: '', script: 'mvn clean -f jenkins2-course-spring-boot/spring-boot-samples/spring-boot-sample-atmosphere/'
+sh label: '', script: 'mvn package -f jenkins2-course-spring-boot/spring-boot-samples/spring-boot-sample-atmosphere/'
+archive 'jenkins2-course-spring-boot/spring-boot-samples/spring-boot-sample-atmosphere/target/*.jar'
+}
